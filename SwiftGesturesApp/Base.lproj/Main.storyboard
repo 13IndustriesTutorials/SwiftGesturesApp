@@ -21,6 +21,8 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="tuV-9M-qre" appends="YES" id="Uuu-oN-QOg"/>
+                                    <outletCollection property="gestureRecognizers" destination="xDK-Y4-Jgy" appends="YES" id="0k9-QU-cGP"/>
+                                    <outletCollection property="gestureRecognizers" destination="MwJ-Mv-CaH" appends="YES" id="yKE-cL-RDb"/>
                                 </connections>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banana" translatesAutoresizingMaskIntoConstraints="NO" id="g9K-ny-xQT">
@@ -28,6 +30,8 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="rre-kq-17W" appends="YES" id="CMt-Ln-mfl"/>
+                                    <outletCollection property="gestureRecognizers" destination="NiV-FV-nns" appends="YES" id="0N8-dy-Fpl"/>
+                                    <outletCollection property="gestureRecognizers" destination="Ck3-Qv-Q8Y" appends="YES" id="C75-hx-jqW"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -38,13 +42,39 @@
                 <panGestureRecognizer minimumNumberOfTouches="1" id="tuV-9M-qre">
                     <connections>
                         <action selector="handlePan:" destination="vXZ-lx-hvc" id="zMp-JV-EMZ"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="eql-90-kPK"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="rre-kq-17W">
                     <connections>
                         <action selector="handlePan:" destination="vXZ-lx-hvc" id="LTU-2P-qp1"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="esP-hz-6pf"/>
                     </connections>
                 </panGestureRecognizer>
+                <pinchGestureRecognizer id="xDK-Y4-Jgy">
+                    <connections>
+                        <action selector="handlePinch:" destination="vXZ-lx-hvc" id="wlI-ba-fNc"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="twu-Db-oge"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <pinchGestureRecognizer id="NiV-FV-nns">
+                    <connections>
+                        <action selector="handlePinch:" destination="vXZ-lx-hvc" id="7No-CZ-ZhJ"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="eey-Zh-33t"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="MwJ-Mv-CaH">
+                    <connections>
+                        <action selector="handleRotate:" destination="vXZ-lx-hvc" id="TZc-og-usQ"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="ruM-Er-veo"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <rotationGestureRecognizer id="Ck3-Qv-Q8Y">
+                    <connections>
+                        <action selector="handleRotate:" destination="vXZ-lx-hvc" id="n2u-9J-XlD"/>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="8YK-Bu-MdM"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="165" y="359"/>
         </scene>
