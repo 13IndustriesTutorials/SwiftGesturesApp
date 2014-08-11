@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
-                            
+    
+    var chompPlayer:AVAudioPlayer? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //create a filtered array of only ImageViews
+        let filteredSubviews = self.view.subviews.filter({
+            $0.isKindOfClass(UIImageView)
+        })
+        
+        for view in filteredSubviews
+        {
+        
+            //add a tap gesture recognizer
+            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
+            recognizer.delegate = self
+            view.addGestureRecognizer(recognizer)
+        }
+        
+        self.chompPlayer = self.loadSound("chomp")
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,8 +92,32 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         recognizer.rotation = 0
     }
     
+    func handleTap(recognizer:UITapGestureRecognizer)
+    {
+        self.chompPlayer?.play()
+    }
+    
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
         return true
+    }
+    
+    //load the sound file
+    func loadSound(filename:NSString)->AVAudioPlayer
+    {
+        let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "caf")
+        var error:NSError? = nil
+        let player = AVAudioPlayer(contentsOfURL: url, error: &error)
+        
+        if player == nil
+        {
+            println("Error loading \(url): \(error?.localizedDescription)")
+        }
+        else
+        {
+            player.prepareToPlay()
+        }
+        
+        return player
     }
 }
 
