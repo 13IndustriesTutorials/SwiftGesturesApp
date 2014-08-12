@@ -11,7 +11,12 @@ import AVFoundation
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet var monkeyPan: UIPanGestureRecognizer!
+    
+    @IBOutlet var bananaPan: UIPanGestureRecognizer!
+    
     var chompPlayer:AVAudioPlayer? = nil
+    var hehePlayer:AVAudioPlayer? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,12 +30,19 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         {
         
             //add a tap gesture recognizer
-            let recognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
+            let recognizer = UITapGestureRecognizer(target: self, action: Selector("handleTap:"))
             recognizer.delegate = self
             view.addGestureRecognizer(recognizer)
+            
+            let recognizer2 = TickleGestureRecognizer(target: self, action: Selector("handleTickle:"))
+            recognizer2.delegate = self
+            
+            recognizer.requireGestureRecognizerToFail(monkeyPan)
+            recognizer.requireGestureRecognizerToFail(bananaPan)
         }
         
         self.chompPlayer = self.loadSound("chomp")
+        self.hehePlayer = self.loadSound("hehehe1")
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +52,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer)
     {
+        //uncommeent for panning
+        return
+        
         //get a reference to view associated with the gesture
         let translation = recognizer.translationInView(self.view)
         
@@ -97,6 +112,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         self.chompPlayer?.play()
     }
     
+    func handleTickle(recognizer:TickleGestureRecognizer)
+    {
+        self.hehePlayer?.play()
+    }
+    
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
         return true
     }
@@ -104,13 +124,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     //load the sound file
     func loadSound(filename:NSString)->AVAudioPlayer
     {
+
         let url = NSBundle.mainBundle().URLForResource(filename, withExtension: "caf")
         var error:NSError? = nil
         let player = AVAudioPlayer(contentsOfURL: url, error: &error)
         
         if player == nil
         {
-            println("Error loading \(url): \(error?.localizedDescription)")
+            println("Error loading url: \(url): desc: \(error?.localizedDescription)")
         }
         else
         {

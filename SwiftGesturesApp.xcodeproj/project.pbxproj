@@ -12,6 +12,10 @@
 		CE79FDF81999332300C3B319 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE79FDF61999332300C3B319 /* Main.storyboard */; };
 		CE79FDFA1999332300C3B319 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE79FDF91999332300C3B319 /* Images.xcassets */; };
 		CE79FE061999332300C3B319 /* SwiftGesturesAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79FE051999332300C3B319 /* SwiftGesturesAppTests.swift */; };
+		CE79FE1219998DEB00C3B319 /* TickleGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE79FE1119998DEB00C3B319 /* TickleGestureRecognizer.swift */; };
+		CE79FE171999966C00C3B319 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE79FE161999966C00C3B319 /* AVFoundation.framework */; };
+		CE79FE1A1999983800C3B319 /* chomp.caf in Resources */ = {isa = PBXBuildFile; fileRef = CE79FE181999983800C3B319 /* chomp.caf */; };
+		CE79FE1B1999983800C3B319 /* hehehe1.caf in Resources */ = {isa = PBXBuildFile; fileRef = CE79FE191999983800C3B319 /* hehehe1.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,11 @@
 		CE79FDFF1999332300C3B319 /* SwiftGesturesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftGesturesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE79FE041999332300C3B319 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE79FE051999332300C3B319 /* SwiftGesturesAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftGesturesAppTests.swift; sourceTree = "<group>"; };
+		CE79FE1119998DEB00C3B319 /* TickleGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TickleGestureRecognizer.swift; sourceTree = "<group>"; };
+		CE79FE131999900600C3B319 /* SwiftGesturesApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftGesturesApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE79FE161999966C00C3B319 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CE79FE181999983800C3B319 /* chomp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = chomp.caf; sourceTree = "<group>"; };
+		CE79FE191999983800C3B319 /* hehehe1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = hehehe1.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE79FE171999966C00C3B319 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,6 +67,9 @@
 		CE79FDE41999332300C3B319 = {
 			isa = PBXGroup;
 			children = (
+				CE79FE181999983800C3B319 /* chomp.caf */,
+				CE79FE191999983800C3B319 /* hehehe1.caf */,
+				CE79FE161999966C00C3B319 /* AVFoundation.framework */,
 				CE79FDEF1999332300C3B319 /* SwiftGesturesApp */,
 				CE79FE021999332300C3B319 /* SwiftGesturesAppTests */,
 				CE79FDEE1999332300C3B319 /* Products */,
@@ -77,9 +90,11 @@
 			children = (
 				CE79FDF21999332300C3B319 /* AppDelegate.swift */,
 				CE79FDF41999332300C3B319 /* ViewController.swift */,
+				CE79FE1119998DEB00C3B319 /* TickleGestureRecognizer.swift */,
 				CE79FDF61999332300C3B319 /* Main.storyboard */,
 				CE79FDF91999332300C3B319 /* Images.xcassets */,
 				CE79FDF01999332300C3B319 /* Supporting Files */,
+				CE79FE131999900600C3B319 /* SwiftGesturesApp-Bridging-Header.h */,
 			);
 			path = SwiftGesturesApp;
 			sourceTree = "<group>";
@@ -189,8 +204,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE79FE1A1999983800C3B319 /* chomp.caf in Resources */,
 				CE79FDF81999332300C3B319 /* Main.storyboard in Resources */,
 				CE79FDFA1999332300C3B319 /* Images.xcassets in Resources */,
+				CE79FE1B1999983800C3B319 /* hehehe1.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE79FDF51999332300C3B319 /* ViewController.swift in Sources */,
+				CE79FE1219998DEB00C3B319 /* TickleGestureRecognizer.swift in Sources */,
 				CE79FDF31999332300C3B319 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,9 +343,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftGesturesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftGesturesApp/SwiftGesturesApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -336,9 +357,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftGesturesApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftGesturesApp/SwiftGesturesApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
